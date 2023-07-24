@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="app">
+
+        <p>
+            <strong>Bound :</strong><br>
+            <span>{{name}}</span>
+        </p>
+
+        <p>
+            <strong>Parse :</strong><br>
+            <span v-html="name"></span>
+        </p>
+        
+        <p v-once> 
+            <strong>Unchangeable :</strong><br>
+            <span >{{name}}</span>
+        </p>
+
+
+        <h5>Text:</h5>
+        <textarea name="name" id="" cols="30" rows="10" v-model="name"></textarea>
+        
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+        <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name:'asyu',
+            }
+        });
+    </script>
+</body>
+</html>
