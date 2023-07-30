@@ -1,17 +1,30 @@
 <template>
   <div id="app" class="container mt-5">
-    <h1>My Shop</h1>
+    <!-- <h1>My Shop</h1>
     <NavbarGeneral :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus" @delete="deleteItem"/>
     <priceSlider :sliderStatus="sliderStatus" :maximum.sync="maximum"></priceSlider>
-    <ProductList :products="products" :maximum="maximum" @add="addItem"/>
+    <ProductList :products="products" :maximum="maximum" @add="addItem"/> -->
+    <!-- <CheckoutItems :cart="cart" :cartTotal="cartTotal" @add-item="addItem" @delete-item="deleteItem" :cartQty="cartQty" /> -->
+    <router-view 
+    :cart="cart"
+    :cartQty="cartQty"
+    :cartTotal="cartTotal"
+    :maximum.sync="maximum"
+    :products="products"
+    :sliderStatus="sliderStatus"
+    @toggle-slide="toggleSliderStatus"
+    @add-item="addItem"
+    @delete-item="deleteItem"></router-view>
   </div>
 </template>
 
 <script>
+// import ProductsItem from './components/ProductsItem.vue';
+// import CheckoutItems from './components/CheckoutItems.vue';
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import ProductList from './components/Product-list.vue';
-import PriceSlider from './components/priceSlider.vue';
-import NavbarGeneral from './components/NavbarGeneral.vue';
+// import ProductList from './components/Product-list.vue';
+// import PriceSlider from './components/priceSlider.vue';
+// import NavbarGeneral from './components/NavbarGeneral.vue';
 export default {
   name: 'App',
   data:function() {
@@ -22,12 +35,14 @@ export default {
       sliderStatus: false    
     }  
   },
-  components: {
-    // FontAwesomeIcon,
-    ProductList,
-    PriceSlider,
-    NavbarGeneral
-  },
+  // components: {
+  //   ProductsItem,
+  //   CheckoutItems
+  //   // FontAwesomeIcon,
+  //   // ProductList,
+  //   // PriceSlider,
+  //   // NavbarGeneral
+  // },
   computed: {
     cartTotal: function () {
             let sum = 0;
